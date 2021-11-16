@@ -16,13 +16,13 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #20c2e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andre.laranjas.todolist.com.controller.IndexController">
    <children>
-      <DatePicker fx:id="tfData" layoutX="14.0" layoutY="193.0" prefHeight="25.0" prefWidth="149.0" />
+      <DatePicker fx:id="dpData" layoutX="14.0" layoutY="193.0" onAction="#data" prefHeight="25.0" prefWidth="149.0" />
       <Text layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de realização:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="tfTarefa" layoutX="14.0" layoutY="129.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="tfTarefa" layoutX="14.0" layoutY="129.0" onAction="#tarefa" prefHeight="25.0" prefWidth="230.0" />
       <Text layoutX="14.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarefa :">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -33,8 +33,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="tfStatus" editable="false" layoutX="14.0" layoutY="249.0" prefHeight="25.0" prefWidth="107.0" />
-      <TextArea fx:id="tfComentario" layoutX="14.0" layoutY="303.0" prefHeight="118.0" prefWidth="374.0" />
+      <TextField fx:id="tfStatus" editable="false" layoutX="14.0" layoutY="249.0" onAction="#status" prefHeight="25.0" prefWidth="107.0" />
+      <TextArea fx:id="taComentario" layoutX="14.0" layoutY="303.0" prefHeight="118.0" prefWidth="374.0" />
       <Text layoutX="17.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comentário:" wrappingWidth="69.46875">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -69,18 +69,19 @@
             <Image url="@../imagens/check.png" />
          </image>
       </ImageView>
-      <Button fx:id="btLixeira" layoutX="77.0" layoutY="435.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btLixeira" layoutX="336.0" layoutY="434.0" mnemonicParsing="false" onAction="#btLixoClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagens/lixeirinha.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </graphic>
          <tooltip>
             <Tooltip text="Excluir" />
          </tooltip>
       </Button>
-      <Button fx:id="btApagar" layoutX="336.0" layoutY="434.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btApagar" layoutX="277.0" layoutY="434.0" mnemonicParsing="false" onAction="#btApagarClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -92,7 +93,7 @@
             <Tooltip text="Apagar campo" />
          </tooltip>
       </Button>
-      <Button fx:id="btSalvar" layoutX="14.0" layoutY="434.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btSalvar" layoutX="14.0" layoutY="434.0" mnemonicParsing="false" onAction="#btSalvarClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -104,7 +105,7 @@
             <Tooltip height="5.0" text="Salvar" width="10.0" />
          </tooltip>
       </Button>
-      <Button fx:id="btAdiar" layoutX="137.0" layoutY="435.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btAdiar" layoutX="175.0" layoutY="434.0" mnemonicParsing="false" onAction="#btAdiarCiick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -116,7 +117,7 @@
             <Tooltip text="Adiar" />
          </tooltip>
       </Button>
-      <Button fx:id="btFinalizar" layoutX="200.0" layoutY="435.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btFinalizar" layoutX="77.0" layoutY="434.0" mnemonicParsing="false" onAction="#btFinalizarClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
