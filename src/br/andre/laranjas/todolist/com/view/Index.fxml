@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
@@ -14,16 +16,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #20c2e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andre.laranjas.todolist.com.controller.IndexController">
+<AnchorPane prefHeight="500.0" prefWidth="932.0" style="-fx-background-color: #20c2e3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.andre.laranjas.todolist.com.controller.IndexController">
    <children>
-      <DatePicker fx:id="dpData" layoutX="14.0" layoutY="193.0" prefHeight="25.0" prefWidth="149.0" />
-      <Text layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de realização:">
+      <DatePicker fx:id="dpData" editable="false" layoutX="14.0" layoutY="193.0" prefHeight="25.0" prefWidth="149.0" />
+      <Text fx:id="dataTxt" layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de realização:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <TextField fx:id="tfTarefa" layoutX="14.0" layoutY="129.0" onAction="#tarefa" prefHeight="25.0" prefWidth="230.0" />
-      <Text layoutX="14.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarefa :">
+      <TextField fx:id="tfTarefa" layoutX="17.0" layoutY="134.0" onAction="#tarefa" prefHeight="25.0" prefWidth="230.0" />
+      <Text layoutX="17.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tarefa :">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -40,19 +42,14 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <MenuBar prefHeight="25.0" prefWidth="701.0">
+      <MenuBar prefHeight="25.0" prefWidth="448.0" style="-fx-background-color: darkblue;">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu id="menuEditar" mnemonicParsing="false" text="Editar">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Delete"/>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Ajuda">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
@@ -69,7 +66,7 @@
             <Image url="@../imagens/check.png" />
          </image>
       </ImageView>
-      <Button fx:id="btLixeira" layoutX="336.0" layoutY="434.0" mnemonicParsing="false" onAction="#btLixoClick" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btLixeira" disable="true" layoutX="336.0" layoutY="434.0" mnemonicParsing="false" onAction="#btLixoClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -105,7 +102,7 @@
             <Tooltip height="5.0" text="Salvar" width="10.0" />
          </tooltip>
       </Button>
-      <Button fx:id="btAdiar" layoutX="175.0" layoutY="434.0" mnemonicParsing="false" onAction="#btAdiarCiick" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btAdiar" disable="true" layoutX="175.0" layoutY="434.0" mnemonicParsing="false" onAction="#btAdiarCiick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -117,7 +114,7 @@
             <Tooltip text="Adiar" />
          </tooltip>
       </Button>
-      <Button fx:id="btFinalizar" layoutX="77.0" layoutY="434.0" mnemonicParsing="false" onAction="#btFinalizarClick" prefHeight="51.0" prefWidth="52.0">
+      <Button fx:id="btFinalizar" disable="true" layoutX="77.0" layoutY="434.0" mnemonicParsing="false" onAction="#btFinalizarClick" prefHeight="51.0" prefWidth="52.0">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -129,5 +126,17 @@
             <Tooltip text="Finalizar" />
          </tooltip>
       </Button>
+      <TableView fx:id="tvTarefa" layoutX="448.0" layoutY="-1.0" prefHeight="506.0" prefWidth="486.0">
+        <columns>
+          <TableColumn fx:id="tcTarefa" prefWidth="297.0" text="Tarefa" />
+          <TableColumn fx:id="tcData" prefWidth="188.0" text="Data" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfcodigo" editable="false" layoutX="269.0" layoutY="134.0" prefHeight="25.0" prefWidth="69.0" />
+      <Text layoutX="269.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

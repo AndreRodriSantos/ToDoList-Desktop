@@ -1,0 +1,16 @@
+.table-row-cell:selected{
+	-fx-background-color: #00f !important;
+}
+.table-row-cell:selected .text{
+	-fx-fill:#fff;
+}
+.menu .text{
+	-fx-fill:#fff;
+}
+menu-items .text{
+	-fx-fill:black;
+}
+
+.table-column-head{
+	-fx-background-color: #00f;
+}

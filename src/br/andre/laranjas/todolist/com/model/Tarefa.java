@@ -3,7 +3,11 @@ package br.andre.laranjas.todolist.com.model;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Tarefa {
+import javax.swing.event.TableColumnModelListener;
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
+
+public class Tarefa implements Comparable<Tarefa>{
 	private long id;
 	private LocalDate criacao;
 	private LocalDate limite;
@@ -73,15 +77,26 @@ public class Tarefa {
 		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MMM/yyyy");
 		builder.append(this.getId() + ";");
 		builder.append(this.getCriacao().format(fmt) + ";");
-		builder.append(this.getLimite());
+		builder.append(this.getLimite().format(fmt) + ";");
 		if (this.getFinalizada() != null) {
-			builder.append(this.getFinalizada().format(fmt));
+			builder.append(this.getFinalizada().format(fmt) + ";");
 		}
 		builder.append(";");
 		builder.append(this.getDescricao() + ";");
 		builder.append(this.getComentario() + ";");
 		builder.append(this.getStatus().ordinal() + "\n");
 		return builder.toString();
+	}
+
+	@Override
+	public int compareTo(Tarefa o) {
+		if(this.getLimite().isBefore(o.getLimite())) {
+			return -1;
+		}else if(this.getLimite().isAfter(o.getLimite())){
+			return 1;
+		}else {
+			return this.getDescricao().compareTo(o.getDescricao());
+		}
 	}
 
 }
